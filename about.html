@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Switch on the Joy | FBNF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Switch on the Joy home">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">Switch on the Joy</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="main-nav" id="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="is-current">About</a>
+        <a href="event.html">Last Year's Event</a>
+        <a href="donate.html">Donations</a>
+        <a href="tutorials.html">Tutorials</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-shell">
+      <div class="container about-layout">
+        <div class="about-copy">
+          <h1 class="section-title">About Switch on the Joy</h1>
+          <p class="section-copy"><em>Switch on the Joy</em> is a project by UICOMP Department of Pediatrics, Child Development Clinic. We collaborate with local groups to provide adapted toys for the community.</p>
+          <h2>Why it matters</h2>
+          <p class="section-copy">Play is more than entertainment, it is how children explore and express themselves. Every child should have the opportunity to experience the independence and joy play can bring. Creating more accessible experiences helps ensure that physical limitations that do not become barriers in childhood.</p>
+        </div>
+        <div class="about-photo">
+          <img src="images/aboutphoto.jpg" alt="Switch on the Joy community members">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-message">Switch on the Joy — Making toys more accessible for every child</p>
+      <div class="footer-collaborators">
+        <span class="collaborators-label">Our collaborators:</span>
+        <div class="footer-logos" aria-label="Collaborator logos">
+          <a class="footer-logo" href="https://fbnf.github.io/Team-Site/index.html" aria-label="FBNF website"><img src="images/fbnflogo.svg" alt="FBNF" onerror="this.remove()"></a>
+          <span class="footer-logo"><img src="images/acelogo.svg" alt="ACE" onerror="this.remove()"></span>
+          <span class="footer-logo"><img src="images/universitylogo.svg" alt="University" onerror="this.remove()"></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    const aboutPhoto = document.querySelector('.about-photo img');
+    if (aboutPhoto) {
+      aboutPhoto.addEventListener('error', () => aboutPhoto.parentElement.remove());
+      if (aboutPhoto.complete && aboutPhoto.naturalWidth === 0) aboutPhoto.parentElement.remove();
+    }
+  </script>
+</body>
+</html>
